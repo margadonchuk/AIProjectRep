@@ -29,7 +29,8 @@ Ensure the following are installed locally before working with the project:
    ```bash
    cp .env.example .env
    ```
-   Populate the values as needed (see [Environment Variables](#environment-variables)).
+   Populate the values as needed (see [Environment Variables](#environment-variables)). The sample file ships with sane local
+   defaults (`APP_ENV=development`, `APP_DEBUG=true`) and placeholder credentials for the external integrations.
 3. **Place frontend assets**
    The migrated assets already live in `public/assets/` (`main.js`, `styles.css`). If you rebuild or customise the frontend, ensure any compiled JS/CSS is written back into this directory so PHP's built-in server can serve them directly.
 4. **Launch the local server**
@@ -187,14 +188,14 @@ Errors respond with `success: false`, a `message`, and optional `errors` array.
 - **Frontend usage:** `main.js` renders the article list in the right-hand column. Empty arrays show the default "Check back soon" placeholder.
 
 ## Environment Variables
-The `.env.example` file documents the configuration expected at runtime:
+The `.env.example` file enumerates the configuration expected at runtime:
 
-| Variable | Description |
-| --- | --- |
-| `APP_ENV` | Runtime environment label (e.g., `development`, `production`). |
-| `APP_DEBUG` | Enables verbose error output when `true`. Disable in production. |
-| `OPENAI_API_KEY` | Secret key injected into outbound requests made by `AiClient`. Required for `/api/ask`. |
-| `CONTENT_API_BASE` | Base URL for the external content service queried by `ContentService`. |
+| Variable | Description | Example |
+| --- | --- | --- |
+| `APP_ENV` | Runtime environment label (e.g., `development`, `production`). | `development` |
+| `APP_DEBUG` | Enables verbose error output when `true`. Disable in production. | `true` |
+| `OPENAI_API_KEY` | Secret key injected into outbound requests made by `AiClient`. Required for `/api/ask`. | `sk-your-openai-key` |
+| `CONTENT_API_BASE` | Base URL for the external content service queried by `ContentService`. | `https://content.example.com` |
 
 Environment variables are loaded in `public/index.php` via `vlucas/phpdotenv`. When deploying, ensure the `.env` file is present or variables are injected by your hosting platform.
 

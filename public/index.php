@@ -10,10 +10,20 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $rootPath = dirname(__DIR__);
 
+$dotenv = Dotenv::createImmutable($rootPath);
 if (is_file($rootPath . '/.env')) {
-    Dotenv::createImmutable($rootPath)->safeLoad();
+    $dotenv->safeLoad();
 } else {
     Dotenv::createImmutable($rootPath, '.env.example')->safeLoad();
+}
+
+$debugMode = filter_var($_ENV['APP_DEBUG'] ?? false, FILTER_VALIDATE_BOOL);
+
+if ($debugMode) {
+    ini_set('display_errors', '1');
+    error_reporting(E_ALL);
+} else {
+    ini_set('display_errors', '0');
 }
 
 $app = AppFactory::create();
@@ -23,7 +33,7 @@ $app->addRoutingMiddleware();
 $errorMiddleware = new ErrorMiddleware(
     $app->getCallableResolver(),
     $app->getResponseFactory(),
-    (bool) ($_ENV['APP_DEBUG'] ?? false),
+    $debugMode,
     true,
     true
 );
