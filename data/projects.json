@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Autonomous Research Assistant",
+        "summary": "An AI agent that synthesises research papers into structured briefs.",
+        "tags": ["nlp", "summarisation", "agent"],
+        "createdAt": "2024-01-12T09:00:00+00:00"
+    },
+    {
+        "title": "Realtime Vision Notetaker",
+        "summary": "Browser-based capture tool that creates action items from meeting recordings.",
+        "tags": ["vision", "productivity"],
+        "createdAt": "2024-02-03T12:00:00+00:00"
+    }
+]
