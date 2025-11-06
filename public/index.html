@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Project Studio</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>AI Project Studio</h1>
+      <p class="tagline">Explore, experiment, and document AI-first product ideas.</p>
+      <button id="open-generator" class="primary">Open Idea Generator</button>
+    </header>
+
+    <main>
+      <section id="projects" class="panel">
+        <h2>Featured Experiments</h2>
+        <div id="project-list" class="grid"></div>
+      </section>
+
+      <section id="articles" class="panel">
+        <h2>Latest Notes</h2>
+        <div id="article-list"></div>
+      </section>
+
+      <section id="generator" class="panel hidden">
+        <h2>Idea Generator</h2>
+        <form id="generator-form">
+          <label for="prompt">Describe the problem you want to solve:</label>
+          <textarea id="prompt" name="prompt" rows="4" required></textarea>
+
+          <label for="system">Optional system prompt:</label>
+          <input id="system" name="system" placeholder="You are a helpful assistant." />
+
+          <button type="submit" class="primary">Generate Concepts</button>
+        </form>
+        <pre id="generator-result" class="result"></pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with Slim 4 · PHP 8.2 · Vanilla JS</p>
+    </footer>
+
+    <script type="module" src="/assets/main.js"></script>
+  </body>
+</html>

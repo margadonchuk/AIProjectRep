@@ -1,0 +1,27 @@
+{
+    "name": "aiprojectrep/ai-project-site",
+    "description": "PHP 8.2 Slim port of the AI project site",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "slim/slim": "^4.12",
+        "slim/psr7": "^1.7",
+        "vlucas/phpdotenv": "^5.5",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "AIProject\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AIProject\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8000 -t public public/index.php"
+    },
+    "minimum-stability": "stable",
+    "license": "MIT"
+}
